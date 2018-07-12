@@ -71,11 +71,7 @@
 <body>
 
 <div class="container">
-    @if(session('status'))
-        <div class="alert alert-info">
-            {{session('status')}}
-        </div>
-    @endif
+
 </div>
     <div class="container">
         <div class="row">
@@ -84,14 +80,13 @@
                 <li><a class="btn btn-outline-primary mr-2" href="{{route('currencies.index')}}">Currencies</a></li>
                 <li><a class="btn btn-outline-success" href="{{route('currencies.create')}}">Add</a></li>
             </ul>
-            <nav>
-                <div class="nav-wrapper blue-grey">
-                    <ul id="nav-mobile" class="left">
 
-                    </ul>
-                </div>
-            </nav>
             <div class="container">
+                @if(session('status'))
+                    <div class="alert alert-info">
+                        {{session('status')}}
+                    </div>
+                @endif
                 @yield('content')
             </div>
         </div>

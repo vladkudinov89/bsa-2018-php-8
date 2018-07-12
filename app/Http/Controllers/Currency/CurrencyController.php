@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Currency;
 
 use App\Currency;
+use App\Http\Requests\CurrencyRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -34,18 +35,28 @@ class CurrencyController extends Controller
      */
     public function create()
     {
-        //
+        $title = 'Add currency';
+        return view('currencies.create',[
+            'title'=>$title,
+            'currency' => []
+        ]);
     }
 
+
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param CurrencyRequest $request
      */
-    public function store(Request $request)
+    public function store(CurrencyRequest $request)
     {
-        //
+        $currency = new Currency();
+        $currency->title = $request->title;
+        $currency->short_name = $request->short_name;
+        $currency->logo_url = $request->logo_url;
+        $currency->price = $request->price;
+
+        $currency->save();
+
+        return redirect()->route('currencies.index')->with('status','Currency Success Added');
     }
 
 
