@@ -69,8 +69,17 @@
     </style>
 </head>
 <body>
+
+<div class="container">
+    @if(session('status'))
+        <div class="alert alert-info">
+            {{session('status')}}
+        </div>
+    @endif
+</div>
     <div class="container">
         <div class="row">
+
             <ul class="nav m-5">
                 <li><a class="btn btn-outline-primary mr-2" href="{{route('currencies.index')}}">Currencies</a></li>
                 <li><a class="btn btn-outline-success" href="{{route('currencies.create')}}">Add</a></li>

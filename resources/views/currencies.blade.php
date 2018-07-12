@@ -32,19 +32,16 @@
                 <td>{{$currency->price}}</td>
 
                 <td>
-                    <a href="#"><ion-icon name="create"></ion-icon></a>
+                    <a class="float-left" href="{{route('currencies.edit' , $currency->id)}}"><ion-icon name="create"></ion-icon></a>
 
-                    <button onclick="return confirm('Вы уверены?')" type="submit" class="delete">
-                        <a class="fa fa-remove"></a><ion-icon name="close"></ion-icon>
+                    <form action="{{ route('currencies.destroy',$currency->id) }}" method="POST">
+                        {{ csrf_field() }}
+                        {{ method_field('DELETE') }}
+
+                    <button style="border: none; background: transparent" onclick="return confirm('Вы уверены?')" type="submit">
+                        <ion-icon name="close"></ion-icon>
                     </button>
-
-                    {{--<form class="currency-delete-form" action="{{ route('currencies.destroy',$currency->id) }}" method="POST">--}}
-                        {{--{{ csrf_field() }}--}}
-                        {{--{{ method_field('DELETE') }}--}}
-                        {{--<a class="btn edit-button" href="{{route('currencies.edit',$currency->id)}}">Edit</a>--}}
-                        {{--<button class="btn red delete-button" type="submit" >Delete</button>--}}
-                    {{--</form>--}}
-
+                    </form>
 
                 </td>
         </tr>
