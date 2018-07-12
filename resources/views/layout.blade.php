@@ -10,6 +10,9 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 
     <!-- Styles -->
     <style>
@@ -67,7 +70,27 @@
 </head>
 <body>
     <div class="container">
-        @yield('content')
+        <div class="row">
+            <ul class="nav m-5">
+                <li><a class="btn btn-outline-primary mr-2" href="{{route('currencies.index')}}">Currencies</a></li>
+                <li><a class="btn btn-outline-success" href="{{route('currencies.create')}}">Add</a></li>
+            </ul>
+            <nav>
+                <div class="nav-wrapper blue-grey">
+                    <ul id="nav-mobile" class="left">
+
+                    </ul>
+                </div>
+            </nav>
+            <div class="container">
+                @yield('content')
+            </div>
+        </div>
     </div>
+
+    <script src="https://unpkg.com/ionicons@4.2.4/dist/ionicons.js"></script>
+
+    <script src="{{ asset('js/app.js') }}"></script>
+
 </body>
 </html>
