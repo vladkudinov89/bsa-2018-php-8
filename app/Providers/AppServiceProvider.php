@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Route::resourceVerbs([
-            'create' => 'app',
+            'create' => 'add',
 
         ]);
     }
