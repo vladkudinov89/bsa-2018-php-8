@@ -26,13 +26,13 @@
             <td><img src="{{$currency->logo_url}}" alt="{{$currency->title}}"></td>
             <td>{{$currency->price}}</td>
             <td>
-                <a class="float-left" href="{{route('currencies.edit' , $currency->id)}}"><ion-icon name="create"></ion-icon></a>
+                <a class="float-left edit-button" href="{{route('currencies.edit' , $currency->id)}}"><ion-icon name="create"></ion-icon>Edit</a>
                 <form action="{{ route('currencies.destroy',$currency->id) }}" method="POST">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
 
-                    <button class="button-delete" onclick="return confirm('Вы уверены?')" type="submit">
-                        <ion-icon name="close"></ion-icon>
+                    <button class="delete-button button-delete" type="submit">
+                        <ion-icon name="close"></ion-icon>Delete
                     </button>
                 </form>
             </td>
