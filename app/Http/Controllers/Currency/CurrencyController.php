@@ -81,16 +81,26 @@ class CurrencyController extends Controller
         return view('currencies.edit',['currency'=>$currency, 'title'=>$currency->title]);
     }
 
+
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Currency $currency
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(CurrencyRequest $request, Currency $currency)
     {
-        //
+
+        if($request->all()){
+            $currency->title = $request->title;
+            $currency->short_name = $request->short_name;
+            $currency->logo_url = $request->logo_url;
+            $currency->price = $request->price;
+
+            $currency->save();
+
+            return redirect()->route('currencies.show' , $currency->id)->with('status','Currency Success Update');
+        }
+
     }
 
 
