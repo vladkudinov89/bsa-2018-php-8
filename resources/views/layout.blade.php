@@ -18,9 +18,9 @@
     <style>
         html, body {
             background-color: #fff;
-            color: #636b6f;
+            color: #31393d;
             font-family: 'Raleway', sans-serif;
-            font-weight: 100;
+            font-weight: 400;
             height: 100vh;
             margin: 0;
         }
@@ -65,6 +65,12 @@
 
         .m-b-md {
             margin-bottom: 30px;
+        }
+
+        .button-delete{
+            cursor: pointer;
+            background: transparent;
+            border: none;
         }
     </style>
 </head>

@@ -31,7 +31,7 @@
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
 
-                    <button style="border: none; background: transparent" onclick="return confirm('Вы уверены?')" type="submit">
+                    <button class="button-delete" onclick="return confirm('Вы уверены?')" type="submit">
                         <ion-icon name="close"></ion-icon>
                     </button>
                 </form>
